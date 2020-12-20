@@ -6,11 +6,20 @@ import * as serviceWorker from './serviceWorker';
 import { GithubProvider } from './context/context';
 import { Auth0Provider } from '@auth0/auth0-react';
 
+const auth0SetUp = {
+  domain: '',
+  clientId: '',
+}
+
+if (process.env.NODE_ENV === 'development') {
+  auth0SetUp.domain = process.env.REACT_APP_DOMAIN
+  auth0SetUp.clientId = process.env.REACT_APP_CLIENT_ID
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider
-      domain={process.env.REACT_APP_DOMAIN}
-      clientId={process.env.REACT_APP_CLIENT_ID}
+      {...auth0SetUp}
       redirectUri={window.location.origin}
       cacheLocation='localstorage'
     >
@@ -18,7 +27,7 @@ ReactDOM.render(
         <App />
       </GithubProvider>
     </Auth0Provider>
-  </React.StrictMode>,
+  </React.StrictMode >,
   document.getElementById('root')
 );
 
