@@ -63,9 +63,7 @@ version used - "react-router-dom": "^5.2.0",
 - Choose : React
 - Go to Settings Tab
 - Copy/Paste Domain, ClientID - can be public (or use .env)
-- Add Domain -
-  for now http://localhost:3000 (DON'T COPY PASTE FROM URL BAR)
-
+- Add Domain 
   - Allowed Callback URLs
   - Allowed Logout URLs
   - Allowed Web Origins
